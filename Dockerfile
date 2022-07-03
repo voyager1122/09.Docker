@@ -5,4 +5,5 @@ RUN pip3 install --no-cache-dir flask
 COPY demosrv.py /
 COPY test.sh /
 CMD [ "/usr/local/bin/python3", "/demosrv.py" ]
+CMD ["./test.sh"]
 EXPOSE 5000
