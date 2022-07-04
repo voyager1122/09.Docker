@@ -35,23 +35,3 @@ spec:
         ports:
         - containerPort: 5000
           name: jks21
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: ingress-jks21-web
-  annotations:
-    kubernetes.io/ingress.class: nginx
-    nginx.ingress.kubernetes.io/server-alias: "jks21.k8s-53.sa"
-spec:
-  rules:
-    - host: jks21.k8s-53.sa
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: jks21
-                port:
-                  number: 5000
